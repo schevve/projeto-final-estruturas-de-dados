@@ -1,0 +1,1 @@
+gcc -o program src/main.c src/avl.c
