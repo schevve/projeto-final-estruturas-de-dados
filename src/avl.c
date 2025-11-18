@@ -254,26 +254,30 @@ void imprimeEstruturada(No *r, int nivel){
 }
 void imprimeCamadaComIdentacaoRec(No *r, int camada, int identacao, int altura){
     if (r == NULL) { // Se uma árvore é vazia, ainda é necessário printar os espaços
-        for (int i = 0; i < (pow(2, altura) * 3) -2; i++) printf(" ");
+        for (int i = 0; i < (pow(2, altura) * 2) -2; i++) printf(" ");
         printf("   ");
-        for (int i = 0; i < (pow(2, altura) * 3) - 1; i++) printf(" ");
+        for (int i = 0; i < (pow(2, altura) * 2) - 1; i++) printf(" ");
         return;
     }
     // Chegou na camada que será printada
     if (camada == 0) {
         // Printa o espaço anterior
-        for (int i = 0; i < (pow(2, altura) * 3) - 2; i++) printf(" ");
+        for (int i = 0; i < (pow(2, altura) * 2) - 2; i++) printf(" ");
         // Normalização do tamanho dos valores em 3
         char espaco[3];
         if (r->chave > 9) {
-            strcpy(espaco, " \0");
+            if (r->chave > 99){
+                strcpy(espaco, "\0");
+            } else {
+                strcpy(espaco, " \0");
+            }
         } else {
             strcpy(espaco, "  \0");
         }
         // Printa o valor
         printf("%s%d", espaco, r->chave);
         // Printa o espaço posterior e retorna
-        for (int i = 0; i < (pow(2, altura) * 3) - 1; i++) printf(" ");
+        for (int i = 0; i < (pow(2, altura) * 2) - 1; i++) printf(" ");
         return;
     }
     // Chama a função recursivamente até chegar na camada que será printada
