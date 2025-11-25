@@ -20,7 +20,7 @@ int main(void)
     do
     {
         printf("\n=== MENU AVL ===\n");
-        printf("1 - Inserir\n2 - Remover\n3 - Buscar\n4 - In-Ordem\n5 - Pre-Ordem\n6 - Pos-Ordem\n7 - Min e Max\n8 - Altura e Tamanho\n9 - Destruir e Recriar\n0 - Sair\nOpcao: ");
+        printf("1 - Inserir\n2 - Remover\n3 - Buscar\n4 - In-Ordem\n5 - Pre-Ordem\n6 - Pos-Ordem\n7 - Min e Max\n8 - Altura e Tamanho\n9 - Destruir e Recriar\n10 - Imprimir estruturada\n11 - Contar nos em determinado nivel\n0 - Sair\nOpcao: ");
         if (scanf("%d", &op) != 1)
         {
             puts("Entrada invalida.");
@@ -81,6 +81,14 @@ int main(void)
             puts("Arvore destruida.");
             A = criaArvore();
             puts("Arvore recriada (vazia).");
+            break;
+        case 10:
+            imprimeEstruturada(A->raiz, 0);
+            break;
+        case 11:
+            printf("Digite o nivel: ");
+            scanf(" %d", &x);
+            printf("Numero de nos no nivel %d: %d", x, contaNivel(A->raiz, x));
             break;
         case 0:
             break;
